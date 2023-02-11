@@ -11,8 +11,6 @@ devise_for :customers,skip: [:passwords], controllers: {
     root to: "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
     resources :items, only: [:index, :show]
-    resources :registrations, only: [:new, :create]
-    resources :sessions, only: [:new, :create, :destroy]
     resources :customers, only: [:show, :edit, :update, :withdrawal, :destroy]
     resources :cart_items, only: [:index, :update, :destroy, :create]
     resources :orders, only: [:new, :update, :index, :show]
@@ -27,7 +25,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
   namespace :admin do
     root to: "homes#top"
-    resources :sessions, only: [:new, :create, :destroy]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
