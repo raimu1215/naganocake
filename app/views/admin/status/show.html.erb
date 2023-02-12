@@ -4,7 +4,7 @@
   </div>
   <div>
     <h5><strong>購入者</strong></h5>
-    <%=link_to @customer.last_name, first_name %>
+    <%=link_to @customer.last_name %>
   </div>
   <div>
   <h5><strong>注文日</strong></h5>
@@ -38,10 +38,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <% @order_details.each do |order_detail| %>
+                  <% @order.each do |order| %>
                   <td><%=link_to created_at %></td>
-                  <td><%= @customer.last_name, first_name %></td>
-                  <td><%= order_detail.amount %></td>
+                  <td><%= @customer.name %></td>
+                  <td><%= order.amount %></td>
                   <td></td>
                   <td colspan="4"></td>
                 </tr>

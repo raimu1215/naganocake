@@ -44,16 +44,7 @@
                   <div>
                       <p></p>
                   </div>
-              <div class="btn btn-sm btn-success">
-                <%=link_to edit_admin_item_path(@customer.id) do %>
-                  編集する
-                <% end %>
-              </div>
-              <div class="btn btn-sm btn-success">
-                <%=link_to admin_root_path do %>
-                  注文履歴一覧を見る
-                <% end %>
-              </div>
+                <%= f.submit '変更を保存', class: "btn-success" %>
               <% end %>
           </div>
       </div>
