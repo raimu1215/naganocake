@@ -19,7 +19,7 @@
                     <p><%= @item.price %></p>
                   </div>
               <div class="btn btn-sm btn-success">
-                <%=link_to edit_admin_item_path(:id) do %>
+                <%=link_to edit_admin_item_path(@item) do %>
                   編集する
                 <% end %>
               </div>

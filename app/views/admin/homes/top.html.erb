@@ -18,16 +18,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <% @order_details.each do |order_detail| %>
+                  <% @orders.each do |order| %>
                   <td><%=link_to created_at %></td>
-                  <td><%= @customer.last_name, first_name %></td>
-                  <td><%= order_detail.amount %></td>
+                  <td><%= @customer.name %></td>
+                  <td><%= order.amount %></td>
                   <td></td>
                   <td colspan="4"></td>
                 </tr>
               </tbody>
                   <% end %>
-                  <%= paginate @order_histories %>
+                  <%= paginate @order_history %>
             </table>
           </div>
       </div>

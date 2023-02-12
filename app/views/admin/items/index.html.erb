@@ -20,8 +20,8 @@
               <tbody>
                 <tr>
                   <% @items.each do |item| %>
-                  <td><%= item.id ></td>
-                  <td><%=link_to item.name, admin_item_path(:id)%></td>
+                  <td><%= item.id %></td>
+                  <td><%=link_to item.name, admin_item_path(item.id)%></td>
                   <td><%= item.price %></td>
                   <td></td>
                   <td></td>
