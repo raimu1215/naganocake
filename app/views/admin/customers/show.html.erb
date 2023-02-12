@@ -1,0 +1,59 @@
+<main>
+  <div class="pull-left">
+    <h5><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h5>
+  </div>
+  <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+              <p>会員ID</p>
+                  <div class="col-auto">
+                    <p></p>
+                  </div>
+              <p>氏名</p>
+                  <div class="col-auto">
+                    <p><%= @customer. last_name %></p>
+                  </div>
+                  <div>
+                    <p><%= @customer.first_name %></p>
+                  </div>
+              <p>フリガナ</p>
+                  <div>
+                      <p><%= @customer.last_name_kana %></p>
+                  </div>
+                  <div>
+                      <p><%= @customer.first_name_kana %></p>
+                  </div>
+              <p>郵便番号</p>
+                  <div>
+                      <p><%= @customer.postal_code %></p>
+                  </div>
+              <p>住所</p>
+                  <div>
+                      <p><%= @customer.address %></p>
+                  </div>
+              <p>電話番号</p>
+                  <div>
+                      <p><%= @customer.telephone_number %></p>
+                  </div>
+              <p>メールアドレス</p>
+                  <div>
+                      <p><%= @customer.email %></p>
+                  </div>
+              <p>会員ステータス</p>
+                  <div>
+                      <p></p>
+                  </div>
+              <div class="btn btn-sm btn-success">
+                <%=link_to edit_admin_item_path(:id) do %>
+                  編集する
+                <% end %>
+              </div>
+              <div class="btn btn-sm btn-success">
+                <%=link_to admin_root_path do %>
+                  注文履歴一覧を見る
+                <% end %>
+              </div>
+          </div>
+      </div>
+    </div>
+</main>

@@ -1,0 +1,59 @@
+<main>
+  <div class="pull-left">
+    <h5><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h5>
+  </div>
+  <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+              <p>会員ID</p>
+                  <div class="col-auto">
+                    <p></p>
+                  </div>
+              <p>氏名</p>
+                  <div class="form-group">
+                    <%= f.text_field :last_name %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.text_field :first_name %>
+                  </div>
+              <p>フリガナ</p>
+                  <div class="form-group">
+                    <%= f.text_field :last_name_kana %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.text_field :first_name_kana %>
+                  </div>
+              <p>郵便番号</p>
+                  <div class="form-group">
+                    <%= f.text_field :postal_code %>
+                  </div>
+              <p>住所</p>
+                  <div class="form-group">
+                    <%= f.text_field :address %>
+                  </div>
+              <p>電話番号</p>
+                  <div class="form-group">
+                    <%= f.text_field :telephone_number %>
+                  </div>
+              <p>メールアドレス</p>
+                  <div class="form-group">
+                    <%= f.text_field :email %>
+                  </div>
+              <p>会員ステータス</p>
+                  <div>
+                      <p></p>
+                  </div>
+              <div class="btn btn-sm btn-success">
+                <%=link_to edit_admin_item_path(:id) do %>
+                  編集する
+                <% end %>
+              </div>
+              <div class="btn btn-sm btn-success">
+                <%=link_to admin_root_path do %>
+                  注文履歴一覧を見る
+                <% end %>
+              </div>
+          </div>
+      </div>
+    </div>
+</main>
