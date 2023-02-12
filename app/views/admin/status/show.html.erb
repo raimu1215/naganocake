@@ -1,0 +1,55 @@
+<main>
+  <div class="pull-left">
+    <h5>注文履歴詳細</h5>
+  </div>
+  <div>
+    <h5><strong>購入者</strong></h5>
+    <%=link_to @customer.last_name, first_name %>
+  </div>
+  <div>
+  <h5><strong>注文日</strong></h5>
+     %>
+  </div>
+  <div>
+  <h5><strong>配送先</strong></h5>
+    
+  </div>
+  <div>
+  <h5><strong>支払方法</strong></h5>
+
+  </div>
+  <div>
+  <h5><strong>注文ステータス</strong></h5>
+  </div>
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th>商品名</th>
+                  <th>単価(税込)</th>
+                  <th>数量</th>
+                  <th>小計</th>
+                  <th>製作ステータス</th>
+                  <th><th>
+                  <th colspan="6"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <% @order_details.each do |order_detail| %>
+                  <td><%=link_to created_at %></td>
+                  <td><%= @customer.last_name, first_name %></td>
+                  <td><%= order_detail.amount %></td>
+                  <td></td>
+                  <td colspan="4"></td>
+                </tr>
+              </tbody>
+                  <% end %>
+                  <%= paginate @order_histories %>
+            </table>
+          </div>
+      </div>
+    </div>
+</main>

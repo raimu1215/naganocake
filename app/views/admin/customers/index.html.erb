@@ -19,7 +19,7 @@
               <tbody>
                 <tr>
                   <% @customers.each do |customer| %>
-                  <td></td>
+                  <td><%= customer.id %></td>
                   <td><%=link_to customer.first_name, customer.last_name, admin_customer_path(:id)%></td>
                   <td><%= customer.email %></td>
                   <td></td>
