@@ -13,7 +13,7 @@ devise_for :customers,skip: [:passwords], controllers: {
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :withdrawal, :destroy]
     resources :cart_items, only: [:index, :update, :destroy, :create]
-    resources :orders, only: [:new, :update, :index, :show]
+    resources :orders, only: [:new, :update, :index, :show, :thanks]
     resources :address, only: [:index, :edit, :create, :update, :destroy]
   end
 
