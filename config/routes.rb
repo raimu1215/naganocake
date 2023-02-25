@@ -10,6 +10,7 @@ devise_for :customers,skip: [:passwords], controllers: {
   scope module: :public do
     root to: "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
+    patch 'customers/:id/edit', to: 'customers#update'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :withdrawal, :destroy]
     resources :cart_items, only: [:index, :update, :destroy, :create]

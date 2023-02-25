@@ -1,0 +1,89 @@
+<main>
+<div class="conteiner">
+  <div class="low">
+    <div class="col-sm-12 col-md-8 col-lg-5 py-sm-4 px-sm-4">
+      <h5>会員情報編集</h5>
+    </div>
+  </div>
+</div>
+
+<%= form_with model: @customer, url: edit_customer_path(@customer) do |f| %>
+  
+<div class="conteiner">
+  <div class="low">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      
+<div class="row">
+  <div class="form-group">
+    <p class="col-auto">氏名</p>
+      <div class="col-auto">
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      </div>
+  </div>
+</div>
+  
+<div class="row">
+  <div class="form-group">
+    <p class="col-auto">フリガナ</p>
+      <div class="col-auto">
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group">
+    <p class="col-auto">郵便番号</p>
+      <div class="col-auto">
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+       </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group">
+    <p class="col-auto">住所</p>
+      <div class="col-auto">
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+       </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group">
+    <p class="col-auto">電話番号</p>
+      <div class="col-auto">
+    <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+       </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group">
+    <p class="col-auto">メールアドレス</p>
+      <div class="col-auto">
+    <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+       </div>
+  </div>
+</div>
+
+  <%= f.submit '編集内容を保存', class: "btn-success" %>
+
+    <div class="btn btn-sm btn-danger">
+        <% if @customer == current_customer %>
+        <%=link_to customer_path(@customer), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+          退会
+        <% end %>
+        <% end %>
+    </div>
+
+<% end %>
+
+
+
+    </div>
+  </div>
+</div>
+</main>

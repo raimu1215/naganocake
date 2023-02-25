@@ -10,7 +10,7 @@
               <div class="btn btn-sm btn-success">
                 <% if @customer == current_customer %>
                 <%=link_to  edit_customer_path(@customer.id) do %>
-                  編集する
+                    編集する
                 <% end %>
                 <% end %>
               </div>
@@ -39,9 +39,17 @@
             </table>
             
             <h5><strong>配送先</strong></h5>
-            
+            <div class="btn btn-sm btn-success">
+                <%=link_to  address_index_path do %>
+                  一覧を見る
+                <% end %>
+            </div>
             <h5><strong>注文履歴</strong></h5>
-            
+            <div class="btn btn-sm btn-success">
+                <%=link_to  orders_path do %>
+                  一覧を見る
+                <% end %>
+            </div>
           </div>
       </div>
     </div>

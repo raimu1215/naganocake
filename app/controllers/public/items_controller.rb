@@ -1,3 +1,9 @@
 class Public::ItemsController < ApplicationController
-    @item = Item.page(params[:page])
+    def index
+        @item = Item.page(params[:page])
+    end
+    
+    def show
+        @item = Item.find(params[:id])
+    end
 end
