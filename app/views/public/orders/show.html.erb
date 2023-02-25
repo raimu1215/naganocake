@@ -1,0 +1,94 @@
+<main>
+  <div class="pull-left">
+    <h5>注文履歴詳細</h5>
+  </div>
+  
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
+            <p><strong>注文情報</strong></p>
+              <thead>
+                <tr>
+                  <th>注文日</th>
+                  <th>配送先</th>
+                  <th>支払方法</th>
+                  <th>ステータス</th>
+                  <th colspan="4"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @order.created_at %></td>
+                  <td><%= @order.postal_code %><br>
+                      <%= @order.address %><br>
+                      <%= @order.name %></td>
+                  <td></td>
+                  <td></td>
+                  <td colspan="4"></td>
+                </tr>
+              </tbody>
+            </table>
+              
+          </div>
+      </div>
+    </div>
+    
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
+            <p><strong>請求情報</strong></p>
+              <thead>
+                <tr>
+                  <th>商品合計</th>
+                  <th>配送料</th>
+                  <th><strong>ご請求額</strong></th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+              
+          </div>
+      </div>
+    </div>
+    
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
+            <p><strong>注文内容</strong></p>
+              <thead>
+                <tr>
+                  <th>商品</th>
+                  <th>単価(税込)</th>
+                  <th>個数</th>
+                  <th>小計</th>
+                  <th colspan="4"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @orders.each do |order| %>
+                <tr>
+                  <td><%= order.@item.name %></td>
+                  <td><%= order.price %></td>
+                  <td></td>
+                  <td></td>
+                  <td colspan="4"></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+              
+          </div>
+      </div>
+    </div>
+</main>

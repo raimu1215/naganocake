@@ -1,0 +1,47 @@
+<main>
+  <div class="pull-left">
+    <h5>注文履歴一覧</h5>
+  </div>
+  
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th>注文日</th>
+                  <th>配送先</th>
+                  <th>注文商品</th>
+                  <th>支払金額</th>
+                  <th>ステータス</th>
+                  <th>注文詳細</th>
+                  <th colspan="6"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <% @orders.each do |order| %>
+                  <td><%= order.created_at %></td>
+                  <td><%= order.postal_code %><br>
+                      <%= order.address %><br>
+                      <%= order.name %></td>
+                  <td><%= order.@item.name %></td>
+                  <td><%= order.total_payment %></td>
+                  <td></td>
+                  <td>
+                    <div class="btn btn-sm btn-success">
+                      <%=link_to order_path do %>
+                        表示する
+                      <% end %>
+                    </div>
+                  </td>
+                  <td colspan="6"></td>
+                </tr>
+              </tbody>
+                  <% end %>
+            </table>
+              
+          </div>
+      </div>
+    </div>
+</main>

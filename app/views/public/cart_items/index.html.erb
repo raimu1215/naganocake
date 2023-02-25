@@ -1,0 +1,73 @@
+<main>
+  <div class="pull-left">
+    <h5>ショッピングカート</h5>
+  </div>
+  
+  <div class="btn btn-sm btn-danger">
+    <%=link_to 'カートを空にする', method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+    <% end %>
+  </div>
+  
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th>商品名</th>
+                  <th>単価(税込)</th>
+                  <th>数量</th>
+                  <th>小計</th>
+                  <th></th>
+                  <th colspan="5"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <% @items.each do |item| %>
+                  <td><%= item.name %></td>
+                  <td><%= item.price %></td>
+                  <td><%= item.amount %></td>
+                    <%= f.submit '変更', class: "btn-success" %>
+                  <td></td>
+                  <td>
+                    <div class="btn btn-sm btn-danger">
+                      <%=link_to '削除する', method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                      <% end %>
+                    </div>
+                  </td>
+                  <td colspan="5"></td>
+                </tr>
+              </tbody>
+                  <% end %>
+            </table>
+            
+            <thead>
+              <tr>
+                <th>合計金額</th>
+                <th colspan="1"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= @items.total_payment %></td>
+                <td colspan="1"></td>
+              </tr>
+            </tbody>
+            
+            <div class="btn btn-sm btn-success">
+              <%=link_to items_path do %>
+                買い物を続ける
+              <% end %>
+            </div>
+              
+            <div class="btn btn-sm btn-success">
+              <%=link_to new_order_path do %>
+                情報入力に進む
+              <% end %>
+            </div>
+              
+          </div>
+      </div>
+    </div>
+</main>
