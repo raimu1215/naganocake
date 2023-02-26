@@ -11,10 +11,13 @@ devise_for :customers,skip: [:passwords], controllers: {
     root to: "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
     patch 'customers/:id/edit', to: 'customers#update'
+    post 'customers/:id', to: 'customers#withdrawal'
+    post 'orders/confirmation', to: 'orders#confirmation'
+    get 'orders/thanks', to: 'orders#thanks'
     resources :items, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update, :withdrawal, :destroy]
+    resources :customers, only: [:show, :edit, :update, :destroy]
     resources :cart_items, only: [:index, :update, :destroy, :create]
-    resources :orders, only: [:new, :update, :index, :show, :thanks]
+    resources :orders, only: [:new, :update, :index, :show]
     resources :address, only: [:index, :edit, :create, :update, :destroy]
   end
 
