@@ -2,6 +2,7 @@
     <div class="conteiner">
       <div class="low">
           <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          　 <%= form_with model: @cart_item, url: cart_items_path do |f| %>
               <!--<商品名>-->
               <div class="col-auto">
                 <h4><strong><%= @item.name %></strong></h4>
@@ -16,10 +17,10 @@
                 <p>(税込)</p>
               </div>
               
-              <div class="btn btn-sm btn-success">
-                <%=link_to cart_items_path do %>
-                  カートに入れる
-                <% end %>
+             <%= f.select :cart_item, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
+              <%= f.submit 'カートに入れる', class: "btn-success" %>
+              <% end %>
+      
               </div>
           </div>
       </div>
