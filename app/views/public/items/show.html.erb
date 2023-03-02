@@ -3,6 +3,9 @@
       <div class="low">
           <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
           　 <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+          　 <div class="col-auto">
+              <p><%= image_tag @item.get_image, size:'200x150' %></p>
+          　 </div>
               <!--<商品名>-->
               <div class="col-auto">
                 <h4><strong><%= @item.name %></strong></h4>
@@ -13,11 +16,11 @@
               </div>
               <!--<税込価格>-->
               <div class="form-group">
-                <p><strong><%= @item.price %></strong></p>
-                <p>(税込)</p>
+                <h5><strong>¥<%= @item.price %></strong></h5><p>(税込)</p>
               </div>
               
-             <%= f.select :cart_item, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+             <%= f.select :amount, [["1", "1"], ["2", "2"]], include_blank: "個数選択" %>
               <%= f.submit 'カートに入れる', class: "btn-success" %>
               <% end %>
       

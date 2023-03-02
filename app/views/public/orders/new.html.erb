@@ -5,11 +5,49 @@
   <div class="conteiner">
       <div class="low">
           <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-            <%= form_with model: @orders, url: new_order_path do |f| %>
+            <%= form_with model: @orders, url: orders_confirmation_path do |f| %>
               <h5><strong>支払方法</strong></h5>
-                  <%= f.label :sales_status_draft, 'クレジットカード' %>
-　　　　　　　　　<%= f.radio_button :sales_status, :credit_card %>
+              <!--クレジットカード-->
+                  <%= f.label :payment_method_credit_card, 'クレジットカード' %>
+　　　　　　　　　<%= f.radio_button :payment_method, :credit_card %>
+　　　　　　  <!--銀行振込-->
+　　　　　　　　　<%= f.label :payment_methodt_transfer, '銀行振込' %>
+　　　　　　　　　<%= f.radio_button :payment_method, :transfer %>
               <h5><strong>お届け先</strong></h5>
+              <!--ご自身の住所-->
+                  <%= f.label :address, 'ご自身の住所', value: 1 %>
+                  <%= f.radio_button :address, '1' %>
+                  
+              <!--登録済住所から選択-->
+                  <%= f.label :address, '登録済住所から選択', value: 2 %>
+                  <%= f.radio_button :address, '2' %>
+              <!--新しいお届け先-->
+                  <%= f.label :address, '新しいお届け先', value: 3 %>
+                  <%= f.radio_button :address, '3' %>
+                  <div class="row">
+                    <div class="form-group">
+                      <p class="col-auto">郵便番号(ハイフンなし)</p>
+                      <div class="col-auto">
+                        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group">
+                        <p class="col-auto">住所</p>
+                        <div class="col-auto">
+                        <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="form-group">
+                        <p class="col-auto">宛名</p>
+                        <div class="col-auto">
+                        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+                        </div>
+                      </div>
+                  </div>
                   
               <%= f.submit '確認画面へ進む', class: "btn-success" %>
               <% end %>
