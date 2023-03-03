@@ -4,8 +4,13 @@ class Public::OrdersController < ApplicationController
       @item = Item.find(params[:id])
     end
     
+    def confirmation
+      @orders = Order.all
+    end
+    
     def create
       @orders = Order.new(cart_item_params)
+      @orders.customer_id = current_customer.id
       @orders.save
       redirect_to orders_confirmation_path
     end

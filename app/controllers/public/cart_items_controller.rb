@@ -1,6 +1,15 @@
 class Public::CartItemsController < ApplicationController
     def index
       @cart_items = current_customer.cart_items
+      @total = @cart_items
+    end
+    
+    def with_tax_price
+      (price * 1.1).floor
+    end
+    
+    def subtotal
+      item.with_tax_price * amount
     end
     
     def create
@@ -22,6 +31,11 @@ class Public::CartItemsController < ApplicationController
     def destroy
       @item = Item.find(params[:id])
       @item.destroy
+      redirect_to cart_items_path
+    end
+    
+    def destroy_all
+      CartItem.destroy_all
       redirect_to cart_items_path
     end
     

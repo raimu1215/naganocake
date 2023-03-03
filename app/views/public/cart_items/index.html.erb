@@ -4,7 +4,7 @@
   </div>
   
   <div class="btn btn-sm btn-danger">
-    <%=link_to 'カートを空にする', method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+    <%= button_to "カートを空にする", destroy_all_articles_path, method: :delete %>
     <% end %>
   </div>
   
@@ -28,10 +28,10 @@
                 <tr>
                   <% @cart_items.each do |cart_item| %>
                   <td><%= cart_item.item.name %></td>
-                  <td><%= cart_item.item.price %></td>
+                  <td><%= cart_item.item.with_tax_price%></td>
                   <td><%= f.select :amount, options_for_select(@numbers, {selected: cart_item.amount.to_i} ) %><%= f.submit '変更', class: "btn-success" %></td>
                     
-                  <td></td>
+                  <td><%= cart_item.subtotal%></td>
                   <td>
                     <div class="btn btn-sm btn-danger">
                       <%=link_to '削除する', method: :delete, "data-confirm" => "本当に削除しますか？" do %>
@@ -52,7 +52,7 @@
             </thead>
             <tbody>
               <tr>
-                <td><%#= @items.total_payment %></td>
+                <td><% @total +=  cart_item.subtotal %></td>
                 <td colspan="1"></td>
               </tr>
             </tbody>

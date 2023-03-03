@@ -8,6 +8,9 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
   scope module: :public do
+    collection do
+      delete 'destroy_all'
+    end
     root to: "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
     patch 'customers/update', to: 'customers#update', as: 'update'
