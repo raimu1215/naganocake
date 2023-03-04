@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
     end
     
     def confirmation
-      @orders = Order.all
+      @orders = current_customer.cart_items
     end
     
     def create

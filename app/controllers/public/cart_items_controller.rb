@@ -1,16 +1,10 @@
 class Public::CartItemsController < ApplicationController
     def index
       @cart_items = current_customer.cart_items
-      @total = @cart_items
+      # @total = 0
     end
     
-    def with_tax_price
-      (price * 1.1).floor
-    end
     
-    def subtotal
-      item.with_tax_price * amount
-    end
     
     def create
       @item = CartItem.new(cart_item_params)

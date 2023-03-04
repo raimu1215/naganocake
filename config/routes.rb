@@ -8,9 +8,6 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
   scope module: :public do
-    collection do
-      delete 'destroy_all'
-    end
     root to: "homes#top"
     get 'home/about' => 'homes#about', as: 'about'
     patch 'customers/update', to: 'customers#update', as: 'update'
@@ -20,7 +17,10 @@ devise_for :customers,skip: [:passwords], controllers: {
     post 'orders/new', to: 'orders#new'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :destroy]
+    delete 'cart_items/destroy_all' => "cart_items#destroy_all"
     resources :cart_items, only: [:index, :update, :destroy, :create]
+    
+
     resources :orders, only: [:new, :update, :index, :show]
     resources :address, only: [:index, :edit, :create, :update, :destroy]
   end
