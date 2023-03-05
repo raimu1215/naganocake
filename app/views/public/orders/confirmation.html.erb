@@ -20,10 +20,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <% @orders.each do |order| %>
-                  <td><%= order.item.name %></td>
-                  <td><%= order.item.price %></td>
-                  <td><%= f.select :amount %></td>
+                  <% @cart_items.each do |cart_item| %>
+                  <td><%= cart_item.item.name %></td>
+                  <td><%= cart_item.item.price %></td>
+                  <td><%= cart_item.amount %></td>
                   <td></td>
                   <td colspan="4"></td>
                 </tr>
@@ -41,9 +41,9 @@
             </thead>
             <tbody>
               <tr>
-                <td><%= @orders.shipping_cost %></td>
+                <td><%= @order.shipping_cost %></td>
                 <td></td>
-                <td><%= @orders.total_payment %></td>
+                <td><%= @order.total_payment %></td>
                 <td colspan="3"></td>
               </tr>
             </tbody>
