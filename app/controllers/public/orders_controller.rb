@@ -1,4 +1,9 @@
 class Public::OrdersController < ApplicationController
+  
+    def new
+      @order = Order.new
+    end
+  
     def index
       @orders = Order.all
       #@item = Item.find(params[:id])
@@ -10,7 +15,7 @@ class Public::OrdersController < ApplicationController
     
     def confirmation
       @cart_items = current_customer.cart_items
-      @order = Order.new(cart_item_params)
+      @order = Order.new(order_params)
     end
     
     def create

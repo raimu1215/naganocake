@@ -7,7 +7,7 @@ class Public::CartItemsController < ApplicationController
     
     
     def create
-      @item = CartItem.new(cart_item_params)
+      @item = CartItem
       @item.customer_id = current_customer.id
       @item.save
       redirect_to cart_items_path
