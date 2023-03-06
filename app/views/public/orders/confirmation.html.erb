@@ -42,8 +42,8 @@
             <tbody>
               <tr>
                 <td>800</td>
-                <td></td>
-                <td><%#= @cart_item.total_payment %></td>
+                <td><% @cart_items.subtotal %></td>
+                <td><%= @orders.total_payment %></td>
                 <td colspan="3"></td>
               </tr>
             </tbody>
