@@ -19,8 +19,15 @@ class Public::OrdersController < ApplicationController
     end
     
     def create
-      @orders = Order.new(cart_item_params)
+      @orders = Order.new(order_params)
       @orders.customer_id = current_customer.id
+      @orders.shipping_cost = 800
+      @cart_items = current_customer.cart_items
+      @cart_items.each do |cart_item|
+      total += cart_item.subtotal
+      end
+      @orders.total_payment = @orders.shipping_cost + total
+     
       @orders.save
       redirect_to orders_confirmation_path
     end
@@ -31,6 +38,6 @@ class Public::OrdersController < ApplicationController
     end
     
     def order_params
-      params.require(:order).permit(:name, :address, :postal_code, :created_at)
+      params.require(:order).permit(:name, :address, :postal_code, :payment_method)
     end
 end

@@ -29,9 +29,9 @@
                   <% @cart_items.each do |cart_item| %>
                   <td><%= cart_item.item.name %></td>
                   <td><%= cart_item.item.with_tax_price%></td>
-                  <%= form_with model: cart_item, url: cart_item_path(cart_item) do |f| %>
-                  <td><%= f.select :amount, *[1..10] %><%= f.submit '変更', class: "btn-success" %></td>
-                  <% end %>
+                  <td><%= form_with model: cart_item, url: cart_item_path(cart_item) do |f| %>
+                  <%= f.select :amount, *[1..10] %><%= f.submit '変更', class: "btn-success" %>
+                  <% end %></td>
                   <td><%= cart_item.subtotal%></td>
                   <% total +=  cart_item.subtotal %>
                   <td>

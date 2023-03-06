@@ -7,12 +7,22 @@ class Public::CartItemsController < ApplicationController
     
     
     def create
+      if CartItem.find_by(item_id: params[:cart_item][:item_id],customer_id: params[:cart_item][:customer_id]).present?
+         @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+         @cart_item.amount += params[:cart_item][:amount].to_i
+         @cart_item.save
+         redirect_to cart_items_path
+      else
+        @cart_item = CartItem.new(cart_item_params)
+        @cart_item.save
+        redirect_to cart_items_path
+      end
     end
     
     def update
       @cart_items = CartItem.find(params[:id])
-      if @cart_items.update!(cart_item_params)
-         redirect_to cart_item_path
+      if @cart_items.update(cart_item_params)
+         redirect_to cart_items_path
       else
         render :index
       end
@@ -31,7 +41,7 @@ class Public::CartItemsController < ApplicationController
     
     private
     def cart_item_params
-      params.require(:cart_item).permit(:amount, :item_id)
+      params.require(:cart_item).permit(:amount, :item_id, :customer_id)
     end
 
 end
