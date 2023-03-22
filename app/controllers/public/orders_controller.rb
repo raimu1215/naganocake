@@ -15,10 +15,18 @@ class Public::OrdersController < ApplicationController
     
     def confirmation
       @cart_items = current_customer.cart_items
+      @cart_item= current_customer.cart_items.all
+      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
       @order = Order.new(order_params)
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.last_name + current_customer.first_name
+      
+      @orders = Order.new
+      @orders.customer_id = current_customer.id
+      @orders.shipping_cost = 800
+      @orders.total_payment = @orders.shipping_cost + @total
+    
     end
     
     def create

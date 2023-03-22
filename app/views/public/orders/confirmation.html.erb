@@ -22,7 +22,7 @@
                 <tr>
                   <% @cart_items.each do |cart_item| %>
                   <td><%= cart_item.item.name %></td>
-                  <td><%= cart_item.item.price %></td>
+                  <td><%= cart_item.add_tax_price.to_s(:delimited) %></td>
                   <td><%= cart_item.amount %></td>
                   <td><%= cart_item.subtotal %></td>
                   <td colspan="4"></td>
@@ -30,23 +30,30 @@
               </tbody>
                   <% end %>
             </table>
+          </div>
+      <div>
+    </div>
             
+    <div class="conteiner">
+      <div class="low">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <table class="table table-hover table-inverse">
             <thead>
-              <tr>
-                <th>送料</th>
-                <th>商品合計</th>
-                <th>請求金額</th>
-                <th colspan="3"></th>
-              </tr>
+              <tr><th>送料</th></tr>
+              <tr><th>商品合計</th></tr>
+              <tr><th>請求金額</th></tr>
+              <tr><th colspan="3"></th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>800</td>
-                <td><%# @cart_items.subtotal %></td>
-                <td><%#= @orders.total_payment %></td>
-                <td colspan="3"></td>
-              </tr>
+              <tr><td>800</td></tr>
+              <tr><td><%= @total.round.to_s(:delimited)%></td></tr>
+              <tr><td><%= @orders.total_payment %></td></tr>
+              <tr><td colspan="3"></td></tr>
             </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
             
             <h5><strong>支払い方法</strong></h5>
             
@@ -55,9 +62,6 @@
               
               
         <%= f.submit '注文を確定する', class: "btn-success" %>
-          </div>
-      </div>
-    </div>
     
   <% end %>
 </main>
