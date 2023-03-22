@@ -5,8 +5,5 @@ class Order < ApplicationRecord
     has_many :order_details, dependent: :destroy
    # has_many :cart_item, dependent: :destroy
     
-    def subtotal
-      item.with_tax_price * amount
-    end
     
 end
