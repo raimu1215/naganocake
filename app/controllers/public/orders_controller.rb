@@ -33,19 +33,20 @@ class Public::OrdersController < ApplicationController
         end
       elsif params[:order][:address_number] == "3"
          address_new = current_customer.addresses.new(address_params)
-         if address_new.save # 確定前(確認画面)で save してしまうことになりますが、私の知識の限界でした
-         else
-         render :new
-         end
-      @orders = Order.new
-      @orders.customer_id = current_customer.id
-      @orders.shipping_cost = 800
-      @orders.total_payment = @orders.shipping_cost + @total
+         address_new.save # 確定前(確認画面)で save してしまうことになりますが、私の知識の限界でした
+      
+          @orders = Order.new
+          @orders.customer_id = current_customer.id
+          
+      end
     end
     
     def create
       @cart_items = current_customer.cart_items.all
-      @order = current_customer.orders.new(order_params)
+      @order = Order.new(order_params)
+      @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+      @order.shipping_cost = 800
+      @order.total_payment = @order.shipping_cost + @total
       if @order.save
         @cart_items.each do |cart_item|
           @order_item = OrderItem.new
@@ -80,11 +81,11 @@ class Public::OrdersController < ApplicationController
     end
     
     def order_params
-      params.require(:order).permit(:name, :address, :postal_code, :payment_method)
+      params.require(:order).permit(:name, :address, :postal_code, :payment_method, :total_payment)
     end
     
     def address_params
       params.require(:order).permit(:name, :address)
     end
-  end
+  
 end

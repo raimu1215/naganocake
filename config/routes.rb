@@ -14,6 +14,7 @@ devise_for :customers,skip: [:passwords], controllers: {
     post 'customers/withdrawal', to: 'customers#withdrawal', as: 'withdrawal'
     post 'orders/confirmation', to: 'orders#confirmation'
     get 'orders/thanks', to: 'orders#thanks'
+    post 'orders/thanks', to: 'orders#thanks', as: 'thanks'
     post 'orders/new', to: 'orders#new'
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :destroy]
@@ -21,7 +22,7 @@ devise_for :customers,skip: [:passwords], controllers: {
     resources :cart_items, only: [:index, :update, :destroy, :create]
     
 
-    resources :orders, only: [:new, :update, :index, :show]
+    resources :orders, only: [:new, :update, :index, :show, :create]
     resources :address, only: [:index, :edit, :create, :update, :destroy]
   end
 
