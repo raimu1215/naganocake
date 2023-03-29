@@ -33,7 +33,7 @@ class Public::OrdersController < ApplicationController
         end
       elsif params[:order][:address_number] == "3"
          address_new = current_customer.addresses.new(address_params)
-         address_new.save # 確定前(確認画面)で save してしまうことになりますが、私の知識の限界でした
+         address_new.save 
       
           @orders = Order.new
           @orders.customer_id = current_customer.id
