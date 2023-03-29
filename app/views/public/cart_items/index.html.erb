@@ -36,8 +36,8 @@
                   <% total +=  cart_item.subtotal %>
                   <td>
                     <div class="btn btn-sm btn-danger">
-                      <%=link_to '削除する', method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-                      <% end %>
+                      <%=link_to '削除する', cart_items_path, method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+                     
                     </div>
                   </td>
                   <td colspan="5"></td>
