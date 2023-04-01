@@ -49,11 +49,11 @@ class Public::OrdersController < ApplicationController
       @order.total_payment = @order.shipping_cost + @total
       if @order.save
         @cart_items.each do |cart_item|
-          @order_item = OrderItem.new
+          @order_item = OrderDetail.new
           @order_item.item_id = cart_item.item_id
           @order_item.order_id = @order.id
-          @order_item.order_amount = cart_item.amount
-          @order_item.order_price = cart_item.item.price
+          @order_item.order_id = cart_item.amount
+          @order_item.order_id = cart_item.item.price
           @order_item.save
       end
     redirect_to orders_thanks_path
@@ -81,7 +81,7 @@ class Public::OrdersController < ApplicationController
     end
     
     def order_params
-      params.require(:order).permit(:name, :address, :postal_code, :payment_method, :total_payment)
+      params.require(:order).permit(:name, :address, :postal_code, :payment_method, :total_payment, :customer_id)
     end
     
     def address_params

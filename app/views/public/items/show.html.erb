@@ -16,7 +16,7 @@
               </div>
               <!--<税込価格>-->
               <div class="form-group">
-                <h5><strong>¥<%= @item.add_tax_price.to_s(:delimited) %></strong></h5><p>(税込)</p>
+                <h5><strong><%= @item.add_tax_price.to_s(:delimited) %></strong></h5><p>(税込)</p>
               </div>
               
               <%= f.hidden_field :customer_id, :value => current_customer.id %>
