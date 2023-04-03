@@ -73,9 +73,7 @@
 
     <div class="btn btn-sm btn-danger">
         <% if @customer == current_customer %>
-        <%=link_to customer_path(@customer), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-          退会
-        <% end %>
+        <%=link_to '退会する', withdrawal_path %>
         <% end %>
     </div>
 

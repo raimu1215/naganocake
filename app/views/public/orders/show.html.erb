@@ -23,7 +23,7 @@
                   <td><%= @order.postal_code %><br>
                       <%= @order.address %><br>
                       <%= @order.name %></td>
-                  <td></td>
+                  <td><%= @order.payment_method %></td>
                   <td></td>
                   <td colspan="4"></td>
                 </tr>
@@ -49,9 +49,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td></td>
-                  <td><%= @order.shipping_cost %></td>
-                  <td></td>
+                  <td><%= @total.round.to_s(:delimited)%></td></tr><% @total_payment = @total + 800 %></td>
+                  <td><%= @order.shipping_cost %></td><% @total_payment = @total + 800 %>
+                  <td><%= @total_payment.round.to_s(:delimited) %></td>
                   <td colspan="3"></td>
                 </tr>
               </tbody>
@@ -80,8 +80,8 @@
                 <tr>
                   <td><%= order_detail.item.name %></td>
                   <td><%= order_detail.item.price %></td>
-                  <td></td>
-                  <td></td>
+                  <td><%= order_detail.item.amount %></td>
+                  <td><%= order_detail.item.subtotal %></td>
                   <td colspan="4"></td>
                 </tr>
                 <% end %>

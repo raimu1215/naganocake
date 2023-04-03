@@ -4,22 +4,25 @@
   </div>
   <div>
     <h5><strong>購入者</strong></h5>
-    
+    <%= link_to admin_customer_path, @order_detail.first_name + @order_detail.last_name%>
   </div>
   <div>
   <h5><strong>注文日</strong></h5>
-    
+    <%= @order_detail.created_at %>
   </div>
   <div>
   <h5><strong>配送先</strong></h5>
-    
+    <%= @order_detail.postal_code %>
+    <%= @order_detail.address %>
+    <%= @order_detail.first_name + @order_detail.last_name %>
   </div>
   <div>
   <h5><strong>支払方法</strong></h5>
-
+    <%= @order.payment_method %>
   </div>
   <div>
   <h5><strong>注文ステータス</strong></h5>
+  <%= f.submit '更新', class: "btn-success" %>
   </div>
     <div class="conteiner">
       <div class="low">
@@ -38,12 +41,14 @@
               </thead>
               <tbody>
                 <tr>
-                  <% @order.each do |order| %>
-                  <td><%=link_to created_at %></td>
-                  <td><%= @customer.name %></td>
-                  <td><%= order.amount %></td>
+                  <% @order_details.each do |order_detail| %>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.price %></td>
+                  <td><%= order_detail.item.amount %></td>
+                  <td><%= order_detail.item.subtotal %></td>
                   <td></td>
-                  <td colspan="4"></td>
+                  <td><%= f.submit '更新', class: "btn-success" %></td>
+                  <td colspan="6"></td>
                 </tr>
               </tbody>
                   <% end %>
@@ -54,11 +59,14 @@
     </div>
     <div>
       <h5><strong>商品合計</strong></h5>
+      <td><%= @total.round.to_s(:delimited)%></td></tr><% @total_payment = @total + 800 %>
     </div>
     <div>
       <h5><strong>送料</strong></h5>
+      800
     </div>
     <div>
       <h5><strong>請求金額</strong></h5>
+      <td><%= @total_payment.round.to_s(:delimited) %></td>
     </div>
 </main>
