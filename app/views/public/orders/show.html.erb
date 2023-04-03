@@ -76,10 +76,10 @@
                 </tr>
               </thead>
               <tbody>
-                <% @orders.each do |order| %>
+                <% @order_details.each do |order_detail| %>
                 <tr>
-                  <td><%= order.item.name %></td>
-                  <td><%= order.price %></td>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= order_detail.item.price %></td>
                   <td></td>
                   <td></td>
                   <td colspan="4"></td>
