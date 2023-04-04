@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<%= form_with model: @customer, url: edit_customer_path(@customer) do |f| %>
+<%= form_with model: @customer, url: customer_path(@customer) do |f| %>
   
 <div class="conteiner">
   <div class="low">
@@ -73,7 +73,7 @@
 
     <div class="btn btn-sm btn-danger">
         <% if @customer == current_customer %>
-        <%=link_to '退会する', withdrawal_path %>
+        <%=link_to '退会する', confirm_path %>
         <% end %>
     </div>
 

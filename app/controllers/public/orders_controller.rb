@@ -10,11 +10,12 @@ class Public::OrdersController < ApplicationController
     end
     
     def show
+      # binding.pry
      @order = Order.find(params[:id])
      @order_details = @order.order_details
      @cart_items = current_customer.cart_items
-     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
-     @order = Order.new(order_params)
+     @total = @order_details.inject(0) { |sum, item| sum + item.sum_of_price }
+     
      
     end
     
@@ -57,8 +58,8 @@ class Public::OrdersController < ApplicationController
           @order_item = OrderDetail.new
           @order_item.item_id = cart_item.item_id
           @order_item.order_id = @order.id
-          @order_item.order_id = cart_item.amount
-          @order_item.order_id = cart_item.item.price
+          @order_item.amount = cart_item.amount
+          @order_item.price = cart_item.item.price
           @order_item.save
       end
     redirect_to orders_thanks_path
@@ -90,7 +91,7 @@ class Public::OrdersController < ApplicationController
     end
     
     def address_params
-      params.require(:order).permit(:name, :address)
+      params.require(:order).permit(:name, :address, :address_number)
     end
   
 end

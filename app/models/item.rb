@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     end
     
     def add_tax_price
-        (item.price * 1.10).round
+        (price * 1.10).round
     end
 
 end
