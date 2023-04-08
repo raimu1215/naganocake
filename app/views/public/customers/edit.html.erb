@@ -1,7 +1,7 @@
 <main>
-<div class="conteiner">
-  <div class="low">
-    <div class="col-sm-12 col-md-8 col-lg-5 py-sm-4 px-sm-4">
+<div class="container">
+  <div class="row">
+    <div class="offset-2 col-10 py-sm-4 px-sm-4">
       <h5>会員情報編集</h5>
     </div>
   </div>
@@ -9,8 +9,8 @@
 
 <%= form_with model: @customer, url: customer_path(@customer) do |f| %>
   
-<div class="conteiner">
-  <div class="low">
+
+  <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       
 <div class="row">
@@ -83,5 +83,5 @@
 
     </div>
   </div>
-</div>
+
 </main>

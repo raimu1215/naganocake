@@ -1,10 +1,14 @@
 <main>
-  <div class="pull-left">
-    <h5>商品編集</h5>
+  <div class="container">
+    <div class="row">
+      <div class="offset-2 col-10 py-sm-4 px-sm-4">
+        <h5>商品編集</h5>
+      </div>
+    </div>
   </div>
-  <div class="conteiner">
-      <div class="low">
-          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  
+      <div class="row">
+          <div class=" mx-auto">
               <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
               <p>商品画像</p>
                   <div class="form-group">
@@ -23,5 +27,5 @@
               <% end %>
           </div>
       </div>
-    </div>
+   
 </main>

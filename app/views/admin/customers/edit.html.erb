@@ -1,9 +1,13 @@
 <main>
-  <div class="pull-left">
-    <h5><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h5>
+  <div class="container">
+    <div class="row">
+      <div class="offset-2 col-10 py-sm-4 px-sm-4">
+        <h5><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h5>
+      </div>
+    </div>
   </div>
-  <div class="conteiner">
-      <div class="low">
+  
+      <div class="row">
           <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
               <%= form_with model: @customer, url: edit_admin_customer_path(@customer.id) do |f| %>
               <p>会員ID</p>
@@ -48,5 +52,5 @@
               <% end %>
           </div>
       </div>
-    </div>
+    
 </main>
