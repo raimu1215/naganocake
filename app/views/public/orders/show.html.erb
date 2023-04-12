@@ -9,7 +9,7 @@
   
     
       <div class="row">
-          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <div class="col-6">
             <table class="table table-hover table-inverse">
             <p><strong>注文情報</strong></p>
               <thead>
@@ -35,12 +35,13 @@
             </table>
               
           </div>
-      </div>
+     
     
     
     
-      <div class="row">
-          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      
+          <div class="col-6">
+            
             <table class="table table-hover table-inverse">
             <p><strong>請求情報</strong></p>
               <thead>
@@ -53,7 +54,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><%= @total.round.to_s(:delimited)%></td></tr><% @total_payment = @total + 800 %></td>
+                  <td><%= @total.round.to_s(:delimited)%></td><% @total_payment = @total + 800 %>
                   <td><%= @order.shipping_cost %></td><% @total_payment = @total + 800 %>
                   <td><%= @total_payment.round.to_s(:delimited) %></td>
                   <td colspan="3"></td>

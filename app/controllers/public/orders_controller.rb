@@ -44,6 +44,7 @@ class Public::OrdersController < ApplicationController
           @orders = Order.new
           @orders.customer_id = current_customer.id
           
+          
       end
     end
     
