@@ -5,49 +5,59 @@
            <h5>ログイン</h5>
         </div>
       </div>
-</div>
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 
   <div class="row">
-    
+    <div class="offset-3 col-9 py-sm-4 px-sm-4">
       <p>会員の方はこちらからログイン</p>
-      
+    </div>
+  </div>
+  
   <div class="row">
+    <div class="offset-3 col-9 py-sm-4 px-sm-4">
   <div class="form-group">
     <p class="col-auto">メールアドレス</p>
       <div class="col-auto">
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
        </div>
+      </div>
+  </div>
   </div>
 
 
   <div class="row">
+    <div class="offset-3 col-9 py-sm-4 px-sm-4">
   <div class="form-group">
     <p class="col-auto">パスワード</p>
       <div class="col-auto">
     <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
+      </div>
   </div>
   </div>
-
+  
+<div class="offset-3 col-9 py-sm-4 px-sm-4">
   <div class="actions">
     <%= f.submit "ログイン" %>
   </div>
+</div>
 <% end %>
   
-  </div>
-</div>
 
-<div class="conteiner">
   <div class="low">
-
-      <p>会員の方がお済みでない方</p>
-
-<p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
-
-  
+     <div class="offset-3 col-9 py-sm-4 px-sm-4">
+      <p>会員登録がお済みでない方</p>
+    </div>
   </div>
+  
+  <div class="low">
+     <div class="offset-3 col-9 py-sm-4 px-sm-4">
+     <p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
+     </div>
+  </div>
+ 
 </div>
 </main>

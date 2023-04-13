@@ -9,7 +9,7 @@
   
     
       <div class="row">
-          <div class="col-6">
+          <div class="col-8">
             <table class="table table-hover table-inverse">
             <p><strong>注文情報</strong></p>
               <thead>
@@ -40,7 +40,7 @@
     
     
       
-          <div class="col-6">
+          <div class="col-4">
             
             <table class="table table-hover table-inverse">
             <p><strong>請求情報</strong></p>
@@ -68,7 +68,7 @@
     
     
       <div class="row">
-          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <div class="col-8">
             <table class="table table-hover table-inverse">
             <p><strong>注文内容</strong></p>
               <thead>
@@ -84,9 +84,9 @@
                 <% @order_details.each do |order_detail| %>
                 <tr>
                   <td><%= order_detail.item.name %></td>
-                  <td><%= order_detail.price %></td>
+                  <td><%= order_detail.add_tax_price.to_s(:delimited) %></td>
                   <td><%= order_detail.amount %></td>
-                  <td><%= order_detail.price * order_detail.amount %></td>
+                  <td><%= order_detail.add_tax_price * order_detail.amount %></td>
                   <td colspan="4"></td>
                 </tr>
                 <% end %>

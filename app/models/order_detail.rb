@@ -6,7 +6,11 @@ class OrderDetail < ApplicationRecord
     belongs_to :item
     
     def sum_of_price
-      price * amount
+      item.taxin_price * amount
+    end
+    
+    def add_tax_price
+        (price * 1.10).round
     end
     
 end
