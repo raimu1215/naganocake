@@ -6,31 +6,33 @@
       </div>
     </div>
   </div>
+  
   <div>
+    
     <h5><strong>購入者</strong></h5>
-    <%= link_to admin_customer_path, @order_detail.first_name + @order_detail.last_name%>
+    <%= link_to admin_customer_path, @order.order_details.name %>
   </div>
   <div>
   <h5><strong>注文日</strong></h5>
-    <%= @order_detail.created_at %>
+    <%= @order.order_details.created_at %>
   </div>
   <div>
   <h5><strong>配送先</strong></h5>
-    <%= @order_detail.postal_code %>
-    <%= @order_detail.address %>
-    <%= @order_detail.first_name + @order_detail.last_name %>
+    <%= @order.order_details.postal_code %>
+    <%= @order.order_details.address %>
+    <%= @order.order_details.name %>
   </div>
   <div>
   <h5><strong>支払方法</strong></h5>
-    <%= @order.payment_method %>
+    <%= @order.order_details.payment_method %>
   </div>
   <div>
   <h5><strong>注文ステータス</strong></h5>
   <%= f.submit '更新', class: "btn-success" %>
   </div>
-    <div class="conteiner">
+   
       <div class="low">
-          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+          <div class="mx-auto">
             <table class="table table-hover table-inverse">
               <thead>
                 <tr>
@@ -60,7 +62,7 @@
             </table>
           </div>
       </div>
-    </div>
+    
     <div>
       <h5><strong>商品合計</strong></h5>
       <td><%= @total.round.to_s(:delimited)%></td></tr><% @total_payment = @total + 800 %>
