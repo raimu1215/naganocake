@@ -13,4 +13,8 @@ class OrderDetail < ApplicationRecord
         (price * 1.10).round
     end
     
+    def subtotal
+      item.with_tax_price * amount
+    end
+    
 end

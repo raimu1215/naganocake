@@ -10,25 +10,27 @@
   <div>
     
     <h5><strong>購入者</strong></h5>
-    <%= link_to admin_customer_path, @order.order_details.name %>
+    <%= link_to @order.name %>
   </div>
   <div>
   <h5><strong>注文日</strong></h5>
-    <%= @order.order_details.created_at %>
+    <%= @order.created_at %>
   </div>
   <div>
   <h5><strong>配送先</strong></h5>
-    <%= @order.order_details.postal_code %>
-    <%= @order.order_details.address %>
-    <%= @order.order_details.name %>
+    <%= @order.postal_code %>
+    <%= @order.address %>
+    <%= @order.name %>
   </div>
   <div>
   <h5><strong>支払方法</strong></h5>
-    <%= @order.order_details.payment_method %>
+    <%= @order.payment_method %>
   </div>
   <div>
   <h5><strong>注文ステータス</strong></h5>
+  <% form_with model: @order do |f| %>
   <%= f.submit '更新', class: "btn-success" %>
+  <% end %>
   </div>
    
       <div class="low">
@@ -50,10 +52,13 @@
                   <% @order_details.each do |order_detail| %>
                   <td><%= order_detail.item.name %></td>
                   <td><%= order_detail.item.price %></td>
-                  <td><%= order_detail.item.amount %></td>
-                  <td><%= order_detail.item.subtotal %></td>
+                  <td><%= order_detail.amount %></td>
+                  <td><%= order_detail.subtotal %></td>
                   <td></td>
-                  <td><%= f.submit '更新', class: "btn-success" %></td>
+                  <td><% form_with model: order_detail, url: admin_status_path do |f| %>
+                      <%= f.submit '更新', class: "btn-success" %>
+                      <% end %>
+                  </td>
                   <td colspan="6"></td>
                 </tr>
               </tbody>
