@@ -69,10 +69,12 @@
               <% end %>
             </div>
               
+            <% if @cart_items.any? %>
             <div class="btn btn-sm btn-success">
               <%=link_to new_order_path do %>
                 情報入力に進む
               <% end %>
+            <% end %>
             </div>
               
           </div>

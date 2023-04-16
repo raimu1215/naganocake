@@ -10,7 +10,7 @@
   <div>
     
     <h5><strong>購入者</strong></h5>
-    <%= link_to @order.name %>
+    <%= link_to @order.name, admin_customer_path(@customer.id) %>
   </div>
   <div>
   <h5><strong>注文日</strong></h5>
