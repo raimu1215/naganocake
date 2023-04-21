@@ -1,4 +1,4 @@
-<main>
+
     
     <div class="container">
         <div class="offset-2 col-10 py-sm-4 px-sm-4">
@@ -19,13 +19,14 @@
         <%=link_to '退会しない', customer_session_path %>
         </div>
         <div class="btn btn-sm btn-danger">
-          <% if current_customer %>
-        <%=link_to '退会する', withdrawal_path, method: :patch, data: { confilm: "本当に退会しますか？" }  %>
-          <% end %>
+        <% if current_customer %>
+        <%=link_to withdrawal_path, method: :patch, "data-confirm" => "本当に退会しますか？" do %>
+         退会する
+        <% end %>
+        <% end %>
         </div>
         
         
       </div>
       </div>
     </div>
-</main>
