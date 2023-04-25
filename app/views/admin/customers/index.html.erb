@@ -26,14 +26,18 @@
                   <td><%= customer.id %></td>
                   <td><%=link_to customer.first_name, admin_customer_path(customer.id)%></td>
                   <td><%= customer.email %></td>
-                  <td></td>
+                  <td>
+                    <%#= form_with model: customer, local: true do |f| %>
+                      <%= customer.is_deleted %>
+                    <%# end %>
+                  </td>
                   <td colspan="4"></td>
                 </tr>
               </tbody>
                   <% end %>
                 <div class="row">
                   <div class=" mx-auto">
-                  <%= paginate @customers %>
+                  <%= paginate @customer %>
                   </div>
                 </div>
             </table>

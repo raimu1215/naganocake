@@ -14,6 +14,7 @@
             <br>退会する場合は、「退会する」をクリックしてください。</br>
           </p>
       
+      <%= form_with model: @customer, url: admin_customers_path do |f| %>
      
         <div class="btn btn-sm btn-danger">
         <%=link_to '退会しない', customer_session_path %>
@@ -26,6 +27,7 @@
         <% end %>
         </div>
         
+      <% end %>
         
       </div>
       </div>
