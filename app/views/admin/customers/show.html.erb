@@ -46,7 +46,7 @@
                   </div>
               <p>会員ステータス</p>
                   <div>
-                      <p></p>
+                      <p><%= @customer.is_deleted %></p>
                   </div>
               <div class="btn btn-sm btn-success">
                 <%=link_to edit_admin_customer_path(@customer.id) do %>
